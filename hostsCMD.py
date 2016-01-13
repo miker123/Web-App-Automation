@@ -10,8 +10,8 @@ site=raw_input("Target site:")
 
 f = open('hostResult.txt', 'w')
 
-#get all host entries for the site
-p = subprocess.Popen(['host', '-a', site], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#get all host entries for the site using AXFR
+p = subprocess.Popen(['host', '-la', site], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 out, err = p.communicate()
 print out 
 f.write(out)
